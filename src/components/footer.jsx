@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import '../styles/footer.css';
-import logoImage from '../assets/logo.jpeg'; // Assuming logo is still here
+import logoImage from '../assets/logo.jpeg';
 
 // Placeholder Social Icons (use an icon library for real ones)
 const FacebookIcon = () => <span className="social-icon">📘</span>;
@@ -15,7 +15,15 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-about">
-            <img src={logoImage} alt="Karwaan-e-Swarojgaar Logo" className="footer-logo" />
+            <img 
+              src={logoImage} 
+              alt="Karwaan-e-Swarojgaar Logo" 
+              className="footer-logo"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://via.placeholder.com/150x150?text=Karwaan-e-Swarojgaar';
+              }}
+            />
             <p>
               Empowering communities through self-employment and sustainable livelihoods. 
               Join us in making a difference.
@@ -54,7 +62,17 @@ const Footer = () => {
         </div>
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Karwaan-e-Swarojgaar. All Rights Reserved.</p>
-          <p>Designed with <span style={{color: "var(--secondary-color)"}}>❤</span> by Ayan</p>
+          <p>
+            Designed with <span style={{color: "var(--secondary-color)"}}>❤</span> by{' '}
+            <a 
+              href="https://ayannayyer.live" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="portfolio-link"
+            >
+              Ayan
+            </a>
+          </p>
         </div>
       </div>
     </footer>

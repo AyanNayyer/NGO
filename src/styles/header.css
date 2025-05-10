@@ -23,17 +23,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
   
   .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: 12px;
+    min-width: 0;
   }
   
   .logo-img {
     height: 45px;
-    margin-right: 12px;
+    width: auto;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
   }
   
@@ -45,148 +51,327 @@
     font-size: 1.15rem;
     color: var(--primary-color);
     font-weight: 700;
-    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 280px; /* Increased max-width for better title display */
   }
   
   /* Mobile Navigation Menu Styles */
   .nav {
     position: fixed;
     top: 0;
-    right: 0; /* Menu slides from the right */
-    width: min(85%, 320px); /* Use min() for responsive width up to a max */
-    height: 100vh; /* Full viewport height */
-    background-color: var(--background-color); /* Solid background */
-    padding: 20px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    transform: translateX(100%); /* Start off-screen */
+    right: 0;
+    width: min(85%, 320px);
+    height: 100vh;
+    background-color: var(--background-color);
+    padding: 0;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    overflow-y: auto; /* Allow scrolling for menu content if it's long */
-    z-index: 1002; /* HIGHEST z-index for the menu panel itself */
+    z-index: 1002;
+    overflow: hidden;
   }
   
   .nav.active {
-    transform: translateX(0); /* Slide into view */
+    transform: translateX(0);
   }
   
   .nav-header-mobile {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--secondary-color-alpha);
-    width: 100%;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    position: relative;
+  }
+  
+  .nav-header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
   
   .nav-logo-img-mobile {
     height: 40px;
-    margin-right: 10px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-  /* .nav-logo-text-mobile styling (if used) */
   
-  .nav-list { /* Common base for UL */
+  .nav-logo-text-mobile {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--light-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .nav-close-button {
+    background: transparent;
+    border: none;
+    color: var(--light-color);
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-close-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-list {
     list-style: none;
-    padding: 0;
-    margin: 0; /* Reset margin for ul */
-    width: 100%; /* For mobile, nav-list takes full width of .nav */
-  }
-  
-  /* Styles specific to links within the mobile navigation panel */
-  .nav.active .nav-list {
+    padding: 20px;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0; /* Control spacing with padding on 'a' */
+    gap: 8px;
   }
   
-  .nav.active .nav-list a { /* Mobile menu link items */
-    font-size: 1.2rem;
-    padding: 14px 10px; /* Increased padding for better tap targets */
-    display: block;
+  .nav-list li {
     width: 100%;
-    border-radius: 4px;
-    color: var(--text-color); /* Ensure color is set */
-    font-weight: 600;
+  }
+  
+  .nav-list a {
+    display: block;
+    padding: 14px 16px;
+    color: var(--text-color);
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: transparent;
   }
-  .nav.active .nav-list a:hover {
-    background-color: rgba(139, 90, 43, 0.05);
+  
+  .nav-list a:hover {
+    background-color: rgba(139, 90, 43, 0.08);
     color: var(--primary-color);
+    transform: translateX(4px);
   }
   
-  /* Desktop Nav List (when not in .nav.active state and on larger screens) */
+  .nav-list .btn-nav-donate {
+    margin-top: 16px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-list .btn-nav-donate:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
+  }
+  
+  /* Add a backdrop when menu is open */
+  .nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1001;
+  }
+  
+  .nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Desktop Nav List */
   @media (min-width: 993px) {
-    .header .nav { /* Target nav specifically for desktop view */
-      position: static; /* Override fixed positioning */
-      transform: none;
-      background-color: transparent;
-      box-shadow: none;
-      padding: 0;
-      height: auto;
-      width: auto; /* Let it size by content */
-      flex-direction: row; /* Horizontal layout for desktop */
-      overflow-y: visible;
-      z-index: auto; /* Reset z-index */
+    .header .nav {
+        position: static;
+        transform: none;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        overflow-y: visible;
+        z-index: auto;
     }
+
     .nav-header-mobile {
-      display: none; /* Hide mobile menu header on desktop */
+        display: none;
     }
-    .nav-list { /* UL for desktop */
-      display: flex;
-      flex-direction: row;
-      align-items: center; /* Vertically center LI items */
-      gap: 25px;
-      width: auto;
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: auto;
+        padding: 0;
+        margin: 0;
     }
-  
-    .nav-list li { /* Add this to ensure direct children are flex items for alignment */
-      display: flex;
-      align-items: center;
+
+    .nav-list li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        white-space: nowrap;
     }
-  
-    .nav-list a, .nav-list .btn-nav-donate { /* Common vertical padding for alignment */
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-weight: 600;
+
+    .nav-list a {
+        padding: 10px 4px;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        white-space: nowrap;
     }
-  
-    .nav-list a:not(.btn-nav-donate) { /* Regular nav links on desktop */
-      font-size: 0.95rem;
-      color: var(--text-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-      padding-left: 5px;  /* Horizontal padding */
-      padding-right: 5px;
+
+    .nav-list a:hover {
+        background-color: transparent;
+        transform: none;
     }
-  
+
     .nav-list a:not(.btn-nav-donate)::after {
-      content: '';
-      position: absolute;
-      bottom: 5px; /* Adjust underline position */
-      left: 5px;
-      width: 0;
-      height: 2px;
-      background-color: var(--secondary-color);
-      transition: width 0.3s ease;
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary-color);
+        transition: width 0.3s ease;
     }
+
     .nav-list a:not(.btn-nav-donate):hover::after,
     .nav-list a:not(.btn-nav-donate).active-link::after {
-      width: calc(100% - 10px); /* Adjust width based on padding */
+        width: calc(100% - 10px);
     }
-    .nav-list a:not(.btn-nav-donate):hover,
-    .nav-list a:not(.btn-nav-donate).active-link {
-      color: var(--primary-color);
+
+    .nav-list .btn-nav-donate {
+        margin: 0;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        border-radius: var(--border-radius);
+        transition: all 0.3s ease;
+        white-space: nowrap;
     }
+
+    .nav-list .btn-nav-donate:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
+    }
+  }
   
-    .btn-nav-donate { /* Donate button specific styling on desktop */
-      padding-left: 20px; /* Horizontal padding */
-      padding-right: 20px;
-      font-size: 0.9rem; /* Matching text links closer */
-      /* Other .btn styles from global.css will apply */
+  /* Tablet and Mobile */
+  @media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+        max-width: 200px; /* Increased for better display on tablet */
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .header .nav:not(.active) {
+        display: none;
+    }
+
+    .nav-list {
+        gap: 8px;
+    }
+
+    .nav-list a {
+        white-space: nowrap;
+    }
+  }
+  
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .header {
+        padding: 10px 0;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+        max-width: 160px; /* Increased for better display on mobile */
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .nav-header-mobile {
+        padding: 16px;
+    }
+
+    .nav-logo-img-mobile {
+        height: 35px;
+    }
+
+    .nav-logo-text-mobile {
+        font-size: 1rem;
+        max-width: 200px; /* Increased for better display in mobile menu */
+    }
+
+    .nav-list {
+        padding: 16px;
+    }
+
+    .nav-list a {
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+
+    .nav-list .btn-nav-donate {
+        padding: 12px 16px;
+        margin-top: 16px;
+        width: 100%;
+    }
+  }
+  
+  /* Hide logo text only on very small screens */
+  @media (max-width: 320px) {
+    .logo-text {
+        display: none;
+    }
+    
+    .logo-link {
+        gap: 0;
     }
   }
   
@@ -215,49 +400,4 @@
   .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
   .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
   .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
-  
-  @media (max-width: 992px) { /* Tablet and Mobile */
-    .menu-toggle {
-      display: block;
-    }
-    .logo-text {
-      font-size: 1rem; /* Adjust if needed for tablets */
-    }
-    .logo-img {
-      height: 40px;
-    }
-    /* On mobile/tablet, the desktop .nav styles (flex-direction: row etc.) shouldn't apply.
-       The base .nav styles (position:fixed, flex-direction:column) will apply,
-       and when .active is added, it slides in. */
-    .header .nav:not(.active) { /* Ensure nav is hidden when not active on mobile */
-        display: none; /* This might be too aggressive, transform is better */
-                        /* The transform translateX(100%) should keep it off-screen */
-    }
-  }
-  
-  @media (max-width: 480px) { /* Small Mobile */
-    .header {
-      padding: 10px 0;
-    }
-    .logo-img {
-      height: 35px;
-    }
-    .logo-text {
-      font-size: 0.9rem;
-      /* display: none; */ /* Uncomment to hide title for very small screens if needed */
-    }
-  
-    /* .nav defined above with width: min(85%, 320px) should handle small screens well */
-  
-    .nav.active .nav-list a {
-      font-size: 1.1rem;
-      padding: 12px 10px; /* Slightly smaller padding if needed */
-    }
-    .nav.active .btn-nav-donate { /* Donate button inside mobile menu */
-       font-size: 1rem;
-       padding: 12px 15px; /* Consistent vertical padding */
-       width: 100%;
-       margin-top: 10px;
-    }
-  }
   
