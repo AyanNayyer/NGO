@@ -1,6 +1,6 @@
 // src/components/Contact.jsx
 import React, { useState } from 'react';
-//import '../styles/Contact.css';
+import '../styles/contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ const Contact = () => {
                 <span className="contact-icon">📍</span> {/* Placeholder Icon */}
                 <div>
                   <strong>Address:</strong>
-                  <p>[Your NGO's Full Address], [City], [State], [PIN Code], India</p> {/* Replace with actual address from your doc if available */}
+                  <p>Prafulla Plaza, Makhania Kuan, Patna, [Bihar], [800004], India</p> {/* Replace with actual address from your doc if available */}
                 </div>
               </li>
               <li>

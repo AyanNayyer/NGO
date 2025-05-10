@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-//import '../styles/Footer.css';
+import '../styles/footer.css';
 import logoImage from '../assets/logo.jpeg'; // Assuming logo is still here
 
 // Placeholder Social Icons (use an icon library for real ones)
@@ -37,7 +37,7 @@ const Footer = () => {
 
           <div className="footer-contact">
             <h4>Contact Us</h4>
-            <p>📍 [Your Address Snippet], City</p> {/* Short Address */}
+            <p>📍 Prafulla Plaza, Makhania Kuan, Patna.</p> {/* Short Address */}
             <p>📧 <a href="mailto:info@karwaaneswarojgaar.org">info@karwaaneswarojgaar.org</a></p>
             <p>📞 <a href="tel:+910000000000">+91 XXXX XXX XXX</a></p>
           </div>

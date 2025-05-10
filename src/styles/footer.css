@@ -1,0 +1,129 @@
+/* src/styles/Footer.css */
+.footer {
+    background-color: var(--accent-color);
+    color: rgba(245, 235, 224, 0.85);
+    padding: 60px 0 20px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-logo {
+    height: 60px;
+    margin-bottom: 15px;
+    /* Attempt to make logo light on dark background if it's the same dark logo file */
+    filter: brightness(0) invert(1) sepia(1) hue-rotate(320deg) saturate(0.5) brightness(1.1);
+    /* For better results, use a separate light version of your logo for the footer */
+  }
+  
+  .footer-about p, .footer-contact p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  
+  .footer-reg-info {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 15px;
+  }
+  
+  .footer-links h4, .footer-contact h4, .footer-social h4 {
+    font-size: 1.2rem;
+    color: var(--light-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary-color);
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-links a, .footer-contact a {
+    color: rgba(245, 235, 224, 0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+  }
+  
+  .footer-links a:hover, .footer-contact a:hover {
+    color: var(--light-color);
+    padding-left: 5px;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+  }
+  
+  .footer-social .social-icons-container {
+    display: flex;
+    gap: 18px;
+  }
+  
+  .footer-social .social-icons-container a {
+    color: rgba(245, 235, 224, 0.85);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .footer-social .social-icon { /* Class for your <span> or <i> icons */
+    /* If using a library like React Icons, you might style the imported component directly or its wrapper */
+  }
+  
+  .footer-social .social-icons-container a:hover {
+    color: var(--light-color);
+    transform: translateY(-3px) scale(1.1);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(245, 235, 224, 0.2);
+    font-size: 0.85rem;
+  }
+  .footer-bottom p {
+      margin-bottom: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    .footer-about, .footer-links, .footer-contact, .footer-social {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .footer-social .social-icons-container {
+      justify-content: center;
+    }
+    .footer-logo {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  

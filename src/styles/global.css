@@ -1,0 +1,132 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap'); /* Added 800 weight */
+
+:root {
+  --primary-color: #8B5A2B;
+  --secondary-color: #B08D57;
+  --accent-color: #5C3A21;
+  
+  --text-color: #4E342E;
+  --text-color-light: #6D4C41;
+  
+  --background-color: #F5EBE0;
+  --card-background-color: #FAF3E0;
+  --light-color: #FFFFFF;
+  
+  --font-family: 'Nunito Sans', sans-serif;
+
+  --border-radius: 8px;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --secondary-color-alpha: rgba(176, 141, 87, 0.3);
+  --primary-color-light: #A1887F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { /* Added for potential full-page considerations */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.7;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll that might be caused by animations/transforms */
+}
+
+body.menu-open {
+  overflow: hidden; /* This should prevent body scroll when mobile menu is open */
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  color: var(--text-color-light);
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center; /* Ensure text within button is centered */
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(92, 58, 33, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #c8a770;
+  color: var(--light-color);
+  border-color: #c8a770;
+  box-shadow: 0 6px 20px rgba(176, 141, 87, 0.3);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* General Mobile Responsive Adjustments for Sections */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}

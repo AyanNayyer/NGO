@@ -1,0 +1,263 @@
+/* src/styles/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(245, 235, 224, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: none;
+    z-index: 1000; /* Header itself */
+    padding: 15px 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  
+  .header.scrolled {
+    background-color: rgba(245, 235, 224, 0.98);
+    box-shadow: var(--box-shadow);
+    padding: 12px 0;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-img {
+    height: 45px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo-link:hover .logo-img {
+    transform: scale(1.05);
+  }
+  
+  .logo-text {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: inline-block;
+  }
+  
+  /* Mobile Navigation Menu Styles */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0; /* Menu slides from the right */
+    width: min(85%, 320px); /* Use min() for responsive width up to a max */
+    height: 100vh; /* Full viewport height */
+    background-color: var(--background-color); /* Solid background */
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto; /* Allow scrolling for menu content if it's long */
+    z-index: 1002; /* HIGHEST z-index for the menu panel itself */
+  }
+  
+  .nav.active {
+    transform: translateX(0); /* Slide into view */
+  }
+  
+  .nav-header-mobile {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--secondary-color-alpha);
+    width: 100%;
+  }
+  
+  .nav-logo-img-mobile {
+    height: 40px;
+    margin-right: 10px;
+  }
+  /* .nav-logo-text-mobile styling (if used) */
+  
+  .nav-list { /* Common base for UL */
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Reset margin for ul */
+    width: 100%; /* For mobile, nav-list takes full width of .nav */
+  }
+  
+  /* Styles specific to links within the mobile navigation panel */
+  .nav.active .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0; /* Control spacing with padding on 'a' */
+  }
+  
+  .nav.active .nav-list a { /* Mobile menu link items */
+    font-size: 1.2rem;
+    padding: 14px 10px; /* Increased padding for better tap targets */
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    color: var(--text-color); /* Ensure color is set */
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .nav.active .nav-list a:hover {
+    background-color: rgba(139, 90, 43, 0.05);
+    color: var(--primary-color);
+  }
+  
+  /* Desktop Nav List (when not in .nav.active state and on larger screens) */
+  @media (min-width: 993px) {
+    .header .nav { /* Target nav specifically for desktop view */
+      position: static; /* Override fixed positioning */
+      transform: none;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 0;
+      height: auto;
+      width: auto; /* Let it size by content */
+      flex-direction: row; /* Horizontal layout for desktop */
+      overflow-y: visible;
+      z-index: auto; /* Reset z-index */
+    }
+    .nav-header-mobile {
+      display: none; /* Hide mobile menu header on desktop */
+    }
+    .nav-list { /* UL for desktop */
+      display: flex;
+      flex-direction: row;
+      align-items: center; /* Vertically center LI items */
+      gap: 25px;
+      width: auto;
+    }
+  
+    .nav-list li { /* Add this to ensure direct children are flex items for alignment */
+      display: flex;
+      align-items: center;
+    }
+  
+    .nav-list a, .nav-list .btn-nav-donate { /* Common vertical padding for alignment */
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: 600;
+    }
+  
+    .nav-list a:not(.btn-nav-donate) { /* Regular nav links on desktop */
+      font-size: 0.95rem;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-left: 5px;  /* Horizontal padding */
+      padding-right: 5px;
+    }
+  
+    .nav-list a:not(.btn-nav-donate)::after {
+      content: '';
+      position: absolute;
+      bottom: 5px; /* Adjust underline position */
+      left: 5px;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    .nav-list a:not(.btn-nav-donate):hover::after,
+    .nav-list a:not(.btn-nav-donate).active-link::after {
+      width: calc(100% - 10px); /* Adjust width based on padding */
+    }
+    .nav-list a:not(.btn-nav-donate):hover,
+    .nav-list a:not(.btn-nav-donate).active-link {
+      color: var(--primary-color);
+    }
+  
+    .btn-nav-donate { /* Donate button specific styling on desktop */
+      padding-left: 20px; /* Horizontal padding */
+      padding-right: 20px;
+      font-size: 0.9rem; /* Matching text links closer */
+      /* Other .btn styles from global.css will apply */
+    }
+  }
+  
+  /* Hamburger Menu Styles */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1003; /* HIGHEST z-index, above the open menu */
+    border: none;
+    background: transparent;
+    padding: 5px;
+    position: relative; /* Ensure z-index works */
+  }
+  
+  .hamburger { /* No changes needed here */
+    width: 28px; height: 22px; position: relative;
+  }
+  .hamburger span {
+    display: block; position: absolute; height: 3px; width: 100%;
+    background: var(--primary-color); border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 9px; }
+  .hamburger span:nth-child(3) { top: 18px; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
+  
+  @media (max-width: 992px) { /* Tablet and Mobile */
+    .menu-toggle {
+      display: block;
+    }
+    .logo-text {
+      font-size: 1rem; /* Adjust if needed for tablets */
+    }
+    .logo-img {
+      height: 40px;
+    }
+    /* On mobile/tablet, the desktop .nav styles (flex-direction: row etc.) shouldn't apply.
+       The base .nav styles (position:fixed, flex-direction:column) will apply,
+       and when .active is added, it slides in. */
+    .header .nav:not(.active) { /* Ensure nav is hidden when not active on mobile */
+        display: none; /* This might be too aggressive, transform is better */
+                        /* The transform translateX(100%) should keep it off-screen */
+    }
+  }
+  
+  @media (max-width: 480px) { /* Small Mobile */
+    .header {
+      padding: 10px 0;
+    }
+    .logo-img {
+      height: 35px;
+    }
+    .logo-text {
+      font-size: 0.9rem;
+      /* display: none; */ /* Uncomment to hide title for very small screens if needed */
+    }
+  
+    /* .nav defined above with width: min(85%, 320px) should handle small screens well */
+  
+    .nav.active .nav-list a {
+      font-size: 1.1rem;
+      padding: 12px 10px; /* Slightly smaller padding if needed */
+    }
+    .nav.active .btn-nav-donate { /* Donate button inside mobile menu */
+       font-size: 1rem;
+       padding: 12px 15px; /* Consistent vertical padding */
+       width: 100%;
+       margin-top: 10px;
+    }
+  }
+  

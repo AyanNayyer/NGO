@@ -1,6 +1,6 @@
 // src/components/Impact.jsx
 import React from 'react';
-//import '../styles/Impact.css';
+import '../styles/impact.css';
 // Add a relevant image for impact stories, e.g., src/assets/impact-story-1.jpg
 // import impactStoryImage from '../assets/impact-story-1.jpg';
 

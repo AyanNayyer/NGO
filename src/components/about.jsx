@@ -1,5 +1,5 @@
 // src/components/About.jsx
-//import '../styles/About.css';
+import '../styles/about.css';
 // Add a relevant image for the about section in src/assets/
 // e.g., src/assets/about-us-community.jpg
 // import aboutImage from '../assets/about-us-community.jpg';

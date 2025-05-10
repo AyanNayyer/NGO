@@ -1,0 +1,117 @@
+/* src/styles/About.css */
+.about {
+    background-color: var(--card-background-color);
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .about-image-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .about-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform 0.4s ease;
+  }
+  
+  .about-image-container:hover img {
+    transform: scale(1.05);
+  }
+  
+  .about-text-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  
+  .about-text-content p {
+    margin-bottom: 20px;
+    color: var(--text-color-light);
+    line-height: 1.8;
+  }
+  
+  .about-block {
+    margin-bottom: 30px;
+  }
+  .about-block:last-child {
+    margin-bottom: 0;
+  }
+  
+  .about-key-points {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .about-key-points h4 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .about-key-points ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .about-key-points li {
+    margin-bottom: 12px;
+    color: var(--text-color);
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Make sure to wrap your emoji icons in a span with this class in About.jsx */
+  .about-key-points li .icon-placeholder {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    margin-top: 4px;
+    font-size: 1.1rem;
+    min-width: 20px;
+    text-align: center;
+  }
+  /* Or if you used i tags with specific classes like .icon-leaf, target those */
+  .icon-leaf::before { content: "🌿"; margin-right: 8px; /* If still using this method */ }
+  .icon-users::before { content: "👥"; margin-right: 8px; }
+  .icon-tools::before { content: "🛠️"; margin-right: 8px; }
+  .icon-link::before { content: "🔗"; margin-right: 8px; }
+  .icon-growth::before { content: "📈"; margin-right: 8px; }
+  
+  .about-cta-btn {
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 992px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .about-image-container {
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-text-content h3 {
+      font-size: 1.4rem;
+    }
+    .about-key-points li {
+      font-size: 0.95rem;
+    }
+  }
+  

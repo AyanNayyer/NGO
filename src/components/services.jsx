@@ -1,6 +1,6 @@
 // src/components/Services.jsx
 import React from 'react';
-//import '../styles/Services.css';
+import '../styles/services.css';
 
 // Example icons (you can replace with an icon library like Font Awesome or Material Icons)
 const IconTraining = () => <span className="service-icon">🎓</span>; // Placeholder icon
