@@ -1,12 +1,62 @@
-# React + Vite
+# Karwaan-e-Swarojgar NGO Website
+A modern, responsive website built for Karwaan-e-Swarojgar, an NGO dedicated to community empowerment and sustainable livelihoods.
+Developed with React, Framer Motion, and Google Forms integration, the site provides engaging, accessible, and mobile-friendly user experiences.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 Live Demo
+[https://karwaanes.org](https://ngo-five-kappa.vercel.app/)
 
-Currently, two official plugins are available:
+# 📝 Features
+Animated Hero Section: Eye-catching, animated introduction using Framer Motion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Mobile-First & Responsive: Seamless experience on all devices.
 
-## Expanding the ESLint configuration
+Smooth Navigation: Sticky header with smooth scroll navigation.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+About, Services, Impact, and Contact Sections: Clear, mission-driven content.
+
+Google Forms Integration: Contact and volunteer forms for easy outreach.
+
+Accessible & SEO-Optimized: Built with accessibility and discoverability in mind.
+
+Consistent Branding: Colors and visuals reflect the NGO’s identity.
+
+# 🛠️ Tech Stack
+React.js
+
+Framer Motion
+
+React Scroll
+
+Google Forms
+
+Vite
+
+CSS3
+
+
+# 🧑‍💻 Getting Started
+Clone the repository:
+```
+bash
+git clone https://github.com/yourusername/karwaan-e-swarojgar-website.git
+cd karwaan-e-swarojgar-website
+```
+Install dependencies:
+```
+bash
+npm install
+```
+Run locally:
+```
+bash
+npm run dev
+```
+Build for production:
+```
+bash
+npm run build
+```
+# 🙏 Acknowledgements
+Special thanks to the Karwaan-e-Swarojgar team for their vision and collaboration.
+
+Made with ❤️ for community empowerment.
