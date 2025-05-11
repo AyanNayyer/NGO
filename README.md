@@ -6,33 +6,33 @@ Developed with React, Framer Motion, and Google Forms integration, the site prov
 [https://karwaanes.org](https://ngo-five-kappa.vercel.app/)
 
 # 📝 Features
-Animated Hero Section: Eye-catching, animated introduction using Framer Motion.
+1. Animated Hero Section: Eye-catching, animated introduction using Framer Motion.
 
-Mobile-First & Responsive: Seamless experience on all devices.
+2. Mobile-First & Responsive: Seamless experience on all devices.
 
-Smooth Navigation: Sticky header with smooth scroll navigation.
+3. Smooth Navigation: Sticky header with smooth scroll navigation.
 
-About, Services, Impact, and Contact Sections: Clear, mission-driven content.
+4. About, Services, Impact, and Contact Sections: Clear, mission-driven content.
 
-Google Forms Integration: Contact and volunteer forms for easy outreach.
+5. Google Forms Integration: Contact and volunteer forms for easy outreach.
 
-Accessible & SEO-Optimized: Built with accessibility and discoverability in mind.
+6. Accessible & SEO-Optimized: Built with accessibility and discoverability in mind.
 
-Consistent Branding: Colors and visuals reflect the NGO’s identity.
+7. Consistent Branding: Colors and visuals reflect the NGO’s identity.
 
 # 🛠️ Tech Stack
-React.js
 
-Framer Motion
+1. React.js
 
-React Scroll
+2. Framer Motion
 
-Google Forms
+3. React Scroll
 
-Vite
+4. Google Forms
 
-CSS3
+5. Vite
 
+6. CSS3
 
 # 🧑‍💻 Getting Started
 Clone the repository:
