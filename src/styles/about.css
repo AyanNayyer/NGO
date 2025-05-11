@@ -1,117 +1,297 @@
-/* src/styles/About.css */
+/* src/styles/about.css */
 .about {
-    background-color: var(--card-background-color);
-  }
-  
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 50px;
-    align-items: center;
-  }
-  
-  .about-image-container {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-  }
-  
-  .about-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    transition: transform 0.4s ease;
-  }
-  
-  .about-image-container:hover img {
-    transform: scale(1.05);
-  }
-  
-  .about-text-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 1.6rem;
-    font-weight: 700;
-  }
-  
-  .about-text-content p {
-    margin-bottom: 20px;
-    color: var(--text-color-light);
-    line-height: 1.8;
-  }
-  
-  .about-block {
-    margin-bottom: 30px;
-  }
-  .about-block:last-child {
-    margin-bottom: 0;
-  }
-  
-  .about-key-points {
-    margin-top: 30px;
-    padding: 20px;
+    padding: 80px 0;
     background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--primary-color);
-  }
-  
-  .about-key-points h4 {
-    font-size: 1.2rem;
-    color: var(--accent-color);
+    overflow: hidden;
+}
+
+/* Section title and subtitle styles should be in global.css */
+/* Only include overrides here if needed */
+
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vision-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+}
+
+.vision-block, .mission-block {
+    padding: 32px 36px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(139, 90, 43, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.vision-block:hover, .mission-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.decorative-icon {
+    font-size: 24px;
+    color: white;
+}
+
+.vision-block h3, .mission-block h3 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.vision-block h3::after, .mission-block h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.vision-block p, .mission-block p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.08rem;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.about-block {
+    background: #fff;
+    padding: 35px 48px;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.about-block h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.about-block h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    margin-top: 25px;
+}
+
+.initiative-item {
+    padding: 28px 36px;
+    background: linear-gradient(145deg, #ffffff, #f8f8f8);
+    border-radius: 16px;
+    border: 1px solid rgba(139, 90, 43, 0.1);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.initiative-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: rgba(139, 90, 43, 0.2);
+}
+
+.initiative-item h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
     margin-bottom: 15px;
     font-weight: 600;
-  }
-  
-  .about-key-points ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .about-key-points li {
-    margin-bottom: 12px;
+}
+
+.initiative-item p {
     color: var(--text-color);
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  /* Make sure to wrap your emoji icons in a span with this class in About.jsx */
-  .about-key-points li .icon-placeholder {
-    color: var(--secondary-color);
-    margin-right: 10px;
-    margin-top: 4px;
-    font-size: 1.1rem;
-    min-width: 20px;
-    text-align: center;
-  }
-  /* Or if you used i tags with specific classes like .icon-leaf, target those */
-  .icon-leaf::before { content: "🌿"; margin-right: 8px; /* If still using this method */ }
-  .icon-users::before { content: "👥"; margin-right: 8px; }
-  .icon-tools::before { content: "🛠️"; margin-right: 8px; }
-  .icon-link::before { content: "🔗"; margin-right: 8px; }
-  .icon-growth::before { content: "📈"; margin-right: 8px; }
-  
-  .about-cta-btn {
+    line-height: 1.7;
+    font-size: 1.08rem;
+    margin-bottom: 15px;
+}
+
+.initiative-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.initiative-item ul li {
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 1.08rem;
+}
+
+.initiative-item ul li:before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.initiative-item ul li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.about-cta-btn {
+    align-self: center;
     margin-top: 30px;
-  }
-  
-  @media (max-width: 992px) {
-    .about-content {
-      grid-template-columns: 1fr;
-      gap: 40px;
+    padding: 16px 48px;
+    font-size: 1.15rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(139, 90, 43, 0.2);
+    display: inline-block;
+    text-align: center;
+}
+
+.about-cta-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 90, 43, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .vision-mission {
+        gap: 24px;
     }
-    .about-image-container {
-      max-width: 500px;
-      margin: 0 auto 30px auto;
+    .initiatives-grid {
+        gap: 18px;
     }
-  }
-  
-  @media (max-width: 768px) {
-    .about-text-content h3 {
-      font-size: 1.4rem;
+}
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
     }
-    .about-key-points li {
-      font-size: 0.95rem;
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
     }
-  }
-  
+    .vision-mission {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 60px 0;
+    }
+    .about-block {
+        padding: 25px 20px;
+    }
+    .about-block h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    .initiatives-grid {
+        grid-template-columns: 1fr;
+    }
+    .vision-block, .mission-block {
+        padding: 25px 20px;
+    }
+    .initiative-item {
+        padding: 20px 15px;
+    }
+    .vision-block h3, .mission-block h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    .about-block {
+        padding: 20px 15px;
+    }
+    .about-block h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    .vision-block h3, .mission-block h3 {
+        font-size: 1.3rem;
+    }
+    .initiative-item h4 {
+        font-size: 1.2rem;
+    }
+    .initiative-item p, 
+    .initiative-item ul li,
+    .vision-block p, 
+    .mission-block p {
+        font-size: 1rem;
+    }
+    .about-cta-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 10px;
+    }
+}

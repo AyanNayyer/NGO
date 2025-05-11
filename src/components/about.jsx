@@ -1,62 +1,111 @@
 // src/components/About.jsx
+import { motion } from 'framer-motion';
 import '../styles/about.css';
-// Add a relevant image for the about section in src/assets/
-// e.g., src/assets/about-us-community.jpg
-// import aboutImage from '../assets/about-us-community.jpg';
+// You can use an emoji as a fallback if you don't have the SVG
+// import decorativeLeaf from '../assets/decorative-leaf.svg';
 
 const About = () => {
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section id="about" className="section about">
       <div className="container">
-        <h2 className="section-title">About Karwaan-e-Swarozgar</h2>
-        <p className="section-subtitle">
-          {/* Extract this from your document (WhatsApp-Image-2025-05-07-at-20.34.23.jpg) */}
-          A brief introduction about the organization's establishment, core philosophy, and journey. 
-          This section should reflect the information provided in your NGO's official documents.
-        </p>
-        
-        <div className="about-content">
-          <div className="about-image-container">
-            {/* <img src={aboutImage} alt="Community members benefiting from Karwaan-e-Swarozgar programs" /> */}
-            <img src="https://via.placeholder.com/500x400.png?text=Our+Community+Work" alt="Placeholder for community work" />
-          </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={sectionVariants}
+        >
+          <motion.h2 className="section-title" variants={itemVariants}>
+            About Karwaan-e-Swarojgar
+          </motion.h2>
+          <motion.p className="section-subtitle" variants={itemVariants}>
+            Empowering communities through sustainable livelihoods and social transformation
+          </motion.p>
           
-          <div className="about-text-content">
-            <div className="about-block">
-              <h3>Our Story & Mission</h3>
-              <p>
-                {/* Placeholder: Populate with content from your document */}
-                Karwaan-e-Swarozgar was founded with the vision to [mention founding vision from document]. 
-                Our mission is to empower individuals and communities, particularly [mention target groups like women, artisans from document], 
-                by providing them with skills, resources, and opportunities for self-employment and sustainable livelihoods, focusing on Khadi and traditional village industries.
-              </p>
+          <motion.div className="about-text-content" variants={itemVariants}>
+            <div className="vision-mission">
+              <div className="vision-block">
+                <div className="icon-container">
+                  {/* Use an emoji as fallback if SVG is not available */}
+                  <span className="decorative-icon">🌱</span>
+                </div>
+                <h3>Our Vision</h3>
+                <p>
+                  To empower individuals and marginalized communities by fostering self-reliance through sustainable, 
+                  skill-based small-scale industries, promoting dignity, economic independence, and social inclusion.
+                </p>
+              </div>
+              
+              <div className="mission-block">
+                <div className="icon-container">
+                  <span className="decorative-icon">🤝</span>
+                </div>
+                <h3>Our Mission</h3>
+                <p>
+                  To uplift economically disadvantaged individuals by providing comprehensive training in textile-related 
+                  sectors, including sewing, hand-tufting, and traditional crafts. We create sustainable livelihood 
+                  opportunities while promoting handmade, eco-friendly products in both local and global markets. 
+                  Our goal is to build self-reliant communities where craftsmanship and creativity drive economic 
+                  and social transformation.
+                </p>
+              </div>
             </div>
             
-            <div className="about-block">
-              <h3>Our Approach</h3>
-              <p>
-                {/* Placeholder: Populate with content from your document */}
-                We believe in a holistic approach that includes [mention key activities like training, resource mobilization, market linkage from document]. 
-                Our efforts are guided by the principles of [mention core principles like self-reliance, community participation from document].
-                The organization strives to ensure profits from these activities are reinvested into achieving its objectives for the members, as outlined in point (11) of your document.
-              </p>
-            </div>
-
-             <div className="about-key-points">
-                <h4>Key Objectives (from your document):</h4>
-                <ul>
-                  {/* These should be based on points like (10), (13), (14), (15) from your document */}
-                  <li><i className="icon-leaf"></i>Establishment and promotion of Khadi & Village Industries (Point 10).</li>
-                  <li><i className="icon-users"></i>Comprehensive development of artisans, especially women, and marginalized groups (Point 10).</li>
-                  <li><i className="icon-tools"></i>Production and wholesale/retail of Khadi products (cotton, silk, wool) and training (Point 13).</li>
-                  <li><i className="icon-link"></i>Training weavers in silk, cotton, and wool, and arranging modern equipment (Point 14).</li>
-                  <li><i className="icon-growth"></i>Providing employment through Khadi and Village Industries Board schemes (Point 15).</li>
-                </ul>
-            </div>
+            <motion.div className="about-block" variants={itemVariants}>
+              <h3>Future Strategic Initiatives</h3>
+              <div className="initiatives-grid">
+                <div className="initiative-item">
+                  <h4>Social Welfare</h4>
+                  <p>
+                    Two key initiatives under our social welfare program:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Karwaan-e-Zindagi:</strong> A comprehensive elderly care program providing 
+                      shelter, healthcare, and engagement activities for senior citizens.
+                    </li>
+                    <li>
+                      <strong>Karwaan-e-Ehsaas:</strong> An animal welfare initiative focused on protecting 
+                      and caring for abandoned pets, contributing to ecological balance.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
             
-            <a href="#contact" className="btn about-cta-btn">Learn More & Partner</a>
-          </div>
-        </div>
+            <motion.a 
+              href="#contact" 
+              className="btn about-cta-btn"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 8px 25px rgba(139, 90, 43, 0.4)"
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Partner With Us
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

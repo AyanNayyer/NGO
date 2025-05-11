@@ -3,44 +3,43 @@ import React from 'react';
 import '../styles/services.css';
 
 // Example icons (you can replace with an icon library like Font Awesome or Material Icons)
-const IconTraining = () => <span className="service-icon">🎓</span>; // Placeholder icon
-const IconProduction = () => <span className="service-icon">⚙️</span>; // Placeholder icon
-const IconMarketing = () => <span className="service-icon">📈</span>; // Placeholder icon
-const IconCommunity = () => <span className="service-icon">🤝</span>; // Placeholder icon
-const IconResources = () => <span className="service-icon">🛠️</span>; // Placeholder icon
-const IconAwareness = () => <span className="service-icon">📢</span>; // Placeholder icon
-
+const IconTechnical = () => <span className="service-icon">💻</span>;
+const IconHealthcare = () => <span className="service-icon">🏥</span>;
+const IconSocial = () => <span className="service-icon">🤝</span>;
+const IconSkills = () => <span className="service-icon">🎯</span>;
+const IconLivelihood = () => <span className="service-icon">🌱</span>;
+const IconImpact = () => <span className="service-icon">🌍</span>;
 
 const servicesData = [
   {
-    icon: <IconTraining />,
-    title: "Skill Development & Training",
-    description: "Providing comprehensive training in Khadi production (cotton, silk, wool), weaving, and other village industries to empower artisans, especially women and marginalized groups. (Ref: Point 10, 13, 14 of your document)",
+    icon: <IconTechnical />,
+    title: "Technical Empowerment",
+    description: "Comprehensive training in computer skills, data analysis, software development, and electronic device maintenance. Our programs focus on practical skills that lead to immediate employment opportunities in the digital economy.",
   },
   {
-    icon: <IconProduction />,
-    title: "Production Support",
-    description: "Facilitating the production of high-quality Khadi and village industry products by providing access to raw materials, modern equipment, and technical guidance. (Ref: Point 13, 14)",
+    icon: <IconHealthcare />,
+    title: "Healthcare Training",
+    description: "Specialized training in physiotherapy, nursing (ANM, GNM), and healthcare services. Our programs enhance healthcare accessibility in rural and urban areas while promoting health awareness and professional development.",
   },
   {
-    icon: <IconMarketing />,
-    title: "Market Linkages & Sales",
-    description: "Assisting artisans in marketing and selling their products through wholesale, retail channels, and creating sustainable market connections. (Ref: Point 13)",
+    icon: <IconSocial />,
+    title: "Social Welfare Programs",
+    description: "Two key initiatives: Karwaan-e-Zindagi for elderly care and Karwaan-e-Ehsaas for animal welfare. We provide shelter, healthcare, and engagement activities while contributing to ecological balance.",
   },
   {
-    icon: <IconResources />,
-    title: "Resource Mobilization",
-    description: "Connecting individuals and groups with government schemes (e.g., Khadi and Village Industries Board) and other resources for establishing self-employment ventures. (Ref: Point 15, 16)",
+    icon: <IconSkills />,
+    title: "Skill Development",
+    description: "Comprehensive training in textile production, handloom, and hand-tufted items. We provide marketing support and guidance for Self-Help Group formation and management.",
   },
   {
-    icon: <IconCommunity />,
-    title: "Community Development",
-    description: "Working towards the comprehensive development of artisans and their communities, focusing on economic self-reliance and social upliftment. (Ref: Point 10)",
+    icon: <IconLivelihood />,
+    title: "Sustainable Livelihoods",
+    description: "Empowering vulnerable groups through training in home industries, cottage industries, and Khadi village industries. Special focus on rural communities, differently-abled individuals, and women.",
   },
   {
-    icon: <IconAwareness />,
-    title: "Awareness & Advocacy",
-    description: "Promoting Khadi and village industries, and advocating for policies that support traditional artisans and rural entrepreneurship. (Based on general NGO activities)",
+    icon: <IconImpact />,
+    title: "Social Impact Initiatives",
+    description: "Active engagement in de-addiction awareness programs and environmental conservation through tree plantation initiatives. We promote healthy lifestyles and sustainable environmental practices.",
   }
 ];
 
@@ -50,9 +49,8 @@ const Services = () => {
       <div className="container">
         <h2 className="section-title">Our Work & Programs</h2>
         <p className="section-subtitle">
-          {/* Extract this from your document or write a summary */}
-          Karwaan-e-Swarozgar is committed to holistic development through a range of targeted initiatives. 
-          Our programs are designed to equip individuals with skills, resources, and opportunities for a self-reliant future.
+          Empowering communities through comprehensive training, sustainable livelihoods, and social welfare initiatives. 
+          Our programs are designed to create lasting impact through skill development and community engagement.
         </p>
         <div className="services-grid">
           {servicesData.map((service, index) => (
