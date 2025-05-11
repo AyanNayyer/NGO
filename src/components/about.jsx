@@ -36,7 +36,7 @@ const About = () => {
           variants={sectionVariants}
         >
           <motion.h2 className="section-title" variants={itemVariants}>
-            About Karwaan-e-Swarojgar
+            About Karwaan-e-Swarozgar
           </motion.h2>
           <motion.p className="section-subtitle" variants={itemVariants}>
             Empowering communities through sustainable livelihoods and social transformation

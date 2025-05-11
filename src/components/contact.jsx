@@ -162,7 +162,7 @@ const Contact = () => {
                 <span className="contact-icon">📞</span>
                 <div>
                   <strong>Phone:</strong>
-                  <p><a href="tel:+910000000000">+91 XXXX XXX XXX</a></p>
+                  <p><a href="tel:+917086846283">+91 7086 846 283</a></p>
                 </div>
               </li>
             </ul>
