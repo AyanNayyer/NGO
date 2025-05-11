@@ -368,7 +368,8 @@
   /* Hide logo text only on very small screens */
   @media (max-width: 320px) {
     .logo-text {
-        display: none;
+        font-size: 0.8rem;
+        max-width: 160px;
     }
     
     .logo-link {
