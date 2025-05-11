@@ -49,8 +49,8 @@ const Header = () => {
             className="logo-link"
             onClick={handleNavClick}
           >
-            <img src={logoImage} alt="Karwaan-e-Swarojgaar Logo" className="logo-img" />
-            <span className="logo-text">Karwaan-e-Swarojgaar</span>
+            <img src={logoImage} alt="Karwaan-e-Swarozgar Logo" className="logo-img" />
+            <span className="logo-text">Karwaan-e-Swarozgar</span>
           </ScrollLink>
           
           <button 
@@ -70,8 +70,8 @@ const Header = () => {
             {/* Mobile menu header with close button */}
             <div className="nav-header-mobile">
               <div className="nav-header-content">
-                <img src={logoImage} alt="Karwaan-e-Swarojgaar Logo" className="nav-logo-img-mobile" />
-                <span className="nav-logo-text-mobile">Karwaan-e-Swarojgaar</span>
+                <img src={logoImage} alt="Karwaan-e-Swarozgar Logo" className="nav-logo-img-mobile" />
+                <span className="nav-logo-text-mobile">Karwaan-e-Swarozgar</span>
               </div>
               <button 
                 className="nav-close-button" 

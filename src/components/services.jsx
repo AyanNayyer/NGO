@@ -51,7 +51,7 @@ const Services = () => {
         <h2 className="section-title">Our Work & Programs</h2>
         <p className="section-subtitle">
           {/* Extract this from your document or write a summary */}
-          Karwaan-e-Swarojgaar is committed to holistic development through a range of targeted initiatives. 
+          Karwaan-e-Swarozgar is committed to holistic development through a range of targeted initiatives. 
           Our programs are designed to equip individuals with skills, resources, and opportunities for a self-reliant future.
         </p>
         <div className="services-grid">

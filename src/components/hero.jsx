@@ -63,7 +63,7 @@ const Hero = () => {
               className="main-title font-black"
               variants={titleVariants}
             >
-              Karwaan-e-Swarojgaar
+              Karwaan-e-Swarozgar
             </motion.span>
             <motion.span 
               className="highlight font-black"

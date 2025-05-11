@@ -8,7 +8,7 @@ const About = () => {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <h2 className="section-title">About Karwaan-e-Swarojgaar</h2>
+        <h2 className="section-title">About Karwaan-e-Swarozgar</h2>
         <p className="section-subtitle">
           {/* Extract this from your document (WhatsApp-Image-2025-05-07-at-20.34.23.jpg) */}
           A brief introduction about the organization's establishment, core philosophy, and journey. 
@@ -17,7 +17,7 @@ const About = () => {
         
         <div className="about-content">
           <div className="about-image-container">
-            {/* <img src={aboutImage} alt="Community members benefiting from Karwaan-e-Swarojgaar programs" /> */}
+            {/* <img src={aboutImage} alt="Community members benefiting from Karwaan-e-Swarozgar programs" /> */}
             <img src="https://via.placeholder.com/500x400.png?text=Our+Community+Work" alt="Placeholder for community work" />
           </div>
           
@@ -26,7 +26,7 @@ const About = () => {
               <h3>Our Story & Mission</h3>
               <p>
                 {/* Placeholder: Populate with content from your document */}
-                Karwaan-e-Swarojgaar was founded with the vision to [mention founding vision from document]. 
+                Karwaan-e-Swarozgar was founded with the vision to [mention founding vision from document]. 
                 Our mission is to empower individuals and communities, particularly [mention target groups like women, artisans from document], 
                 by providing them with skills, resources, and opportunities for self-employment and sustainable livelihoods, focusing on Khadi and traditional village industries.
               </p>

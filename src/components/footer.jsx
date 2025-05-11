@@ -17,11 +17,11 @@ const Footer = () => {
           <div className="footer-about">
             <img 
               src={logoImage} 
-              alt="Karwaan-e-Swarojgaar Logo" 
+              alt="Karwaan-e-Swarozgar Logo" 
               className="footer-logo"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/150x150?text=Karwaan-e-Swarojgaar';
+                e.target.src = 'https://via.placeholder.com/150x150?text=Karwaan-e-Swarozgar';
               }}
             />
             <p>
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Karwaan-e-Swarojgaar. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Karwaan-e-Swarozgar. All Rights Reserved.</p>
           <p>
             Designed with <span style={{color: "var(--secondary-color)"}}>❤</span> by{' '}
             <a 

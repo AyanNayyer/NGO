@@ -41,7 +41,7 @@ const Impact = () => {
             </div>
             <div className="impact-story-content">
               <h4>Sunita's Weaving Enterprise</h4>
-              <p className="story-quote">"Karwaan-e-Swarojgaar gave me the skills and confidence to start my own weaving unit. Now, I support my family and employ other women from my village."</p>
+              <p className="story-quote">"Karwaan-e-Swarozgar gave me the skills and confidence to start my own weaving unit. Now, I support my family and employ other women from my village."</p>
               <p className="story-attribution">- Sunita Devi, Artisan from [Village Name]</p>
             </div>
           </div>
