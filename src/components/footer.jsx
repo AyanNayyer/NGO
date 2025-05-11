@@ -2,12 +2,13 @@
 import React from 'react';
 import '../styles/footer.css';
 import logoImage from '../assets/logo.jpeg';
+import { FaTwitter, FaInstagram, FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 // Placeholder Social Icons (use an icon library for real ones)
-const FacebookIcon = () => <span className="social-icon">📘</span>;
-const TwitterIcon = () => <span className="social-icon">🐦</span>;
-const InstagramIcon = () => <span className="social-icon">📸</span>;
-const LinkedInIcon = () => <span className="social-icon">🔗</span>;
+// const FacebookIcon = () => <span className="social-icon">📘</span>;
+// const TwitterIcon = () => <span className="social-icon">🐦</span>;
+// const InstagramIcon = () => <span className="social-icon">📸</span>;
+// const LinkedInIcon = () => <span className="social-icon">🔗</span>;
 
 const Footer = () => {
   return (
@@ -53,10 +54,10 @@ const Footer = () => {
           <div className="footer-social">
             <h4>Follow Us</h4>
             <div className="social-icons-container">
-              <a href="#" aria-label="Facebook"><FacebookIcon /></a>
-              <a href="#" aria-label="Twitter"><TwitterIcon /></a>
-              <a href="#" aria-label="Instagram"><InstagramIcon /></a>
-              <a href="#" aria-label="LinkedIn"><LinkedInIcon /></a>
+            <a href="tel:+917086846283" aria-label="Phone"><FaPhone /></a>
+              <a href="mailto:ayannayyer@gmail.com" aria-label="Email"><FaEnvelope /></a>
+              <a href="https://twitter.com/ayannayyer" aria-label="Twitter"><FaTwitter /></a>
+              <a href="https://instagram.com/ayannayyer" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
         </div>
