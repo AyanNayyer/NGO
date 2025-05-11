@@ -1,4 +1,4 @@
-/* src/styles/Header.css */
+/* src/styles/header.css */
 .header {
     position: fixed;
     top: 0;
@@ -8,483 +8,232 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: none;
-    z-index: 1000; /* Header itself */
+    z-index: 1000;
     padding: 15px 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-  }
+}
   
-  .header.scrolled {
+.header.scrolled {
     background-color: rgba(245, 235, 224, 0.98);
     box-shadow: var(--box-shadow);
     padding: 12px 0;
-  }
+}
   
-  .header-container {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-  }
+}
   
-  .logo-link {
+.logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     gap: 12px;
     min-width: 0;
-  }
+    cursor: pointer;
+}
   
-  .logo-img {
+.logo-img {
     height: 45px;
     width: auto;
     flex-shrink: 0;
     transition: transform 0.3s ease;
-  }
+}
   
-  .logo-link:hover .logo-img {
+.logo-link:hover .logo-img {
     transform: scale(1.05);
-  }
+}
   
-  .logo-text {
+.logo-text {
     font-size: 1.15rem;
     color: var(--primary-color);
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 280px; /* Increased max-width for better title display */
-  }
-  
-  /* Mobile Navigation Menu Styles */
-  .nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: min(85%, 320px);
-    height: 100vh;
-    background-color: var(--background-color);
+    max-width: 280px;
+}
+
+/* Navigation styles for desktop */
+.nav.desktop-only {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
     padding: 0;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    flex-direction: column;
-    z-index: 1002;
-    overflow: hidden;
-  }
-  
-  .nav.active {
-    transform: translateX(0);
-    z-index: 9999 !important; 
-  }
-  
-  .nav-header-mobile {
-    display: flex;
-    justify-content: space-between;
+    margin: 0;
     align-items: center;
-    padding: 20px;
+    gap: 20px;
+}
+
+.nav-list li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+    width: calc(100% - 10px);
+}
+
+.btn-nav-donate {
+    padding: 8px 16px;
+    font-size: 0.9rem;
     background-color: var(--primary-color);
     color: var(--light-color);
-    position: relative;
-  }
-  
-  .nav-header-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .nav-logo-img-mobile {
-    height: 40px;
-    width: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-logo-text-mobile {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--light-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .nav-close-button {
-    background: transparent;
-    border: none;
-    color: var(--light-color);
-    padding: 8px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-close-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .nav-list {
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-    flex-grow: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .nav-list li {
-    width: 100%;
-  }
-  
-  .nav-list a {
-    display: block;
-    padding: 14px 16px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background-color: transparent;
-  }
-  
-  .nav-list a:hover {
-    background-color: rgba(139, 90, 43, 0.08);
-    color: var(--primary-color);
-    transform: translateX(4px);
-  }
-  
-  .nav-list .btn-nav-donate {
-    margin-top: 16px;
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    text-align: center;
-    padding: 14px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-list .btn-nav-donate:hover {
+}
+
+.btn-nav-donate:hover {
     background-color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
-  }
-  
-  /* Add a backdrop when menu is open */
-  .nav-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1001;
-  }
-  
-  .nav-backdrop.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  /* Desktop Nav List */
-  @media (min-width: 993px) {
-    .header .nav {
-        position: static;
-        transform: none;
-        background-color: transparent;
-        box-shadow: none;
-        padding: 0;
-        height: auto;
-        width: auto;
-        flex-direction: row;
-        overflow-y: visible;
-        z-index: auto;
-    }
+}
 
-    .nav-header-mobile {
+/* Mobile styles */
+@media (max-width: 992px) {
+    /* Hide the desktop navigation on mobile */
+    .nav.desktop-only {
         display: none;
     }
-
-    .nav-list {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-        width: auto;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-list li {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        white-space: nowrap;
-    }
-
-    .nav-list a {
-        padding: 10px 4px;
-        font-size: 0.9rem;
-        color: var(--text-color);
-        position: relative;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        white-space: nowrap;
-    }
-
-    .nav-list a:hover {
-        background-color: transparent;
-        transform: none;
-    }
-
-    .nav-list a:not(.btn-nav-donate)::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-        width: 0;
-        height: 2px;
-        background-color: var(--secondary-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-list a:not(.btn-nav-donate):hover::after,
-    .nav-list a:not(.btn-nav-donate).active-link::after {
-        width: calc(100% - 10px);
-    }
-
-    .nav-list .btn-nav-donate {
-        margin: 0;
-        padding: 8px 16px;
-        font-size: 0.9rem;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--primary-color);
-        color: var(--light-color);
-        border-radius: var(--border-radius);
-        transition: all 0.3s ease;
-        white-space: nowrap;
-    }
-
-    .nav-list .btn-nav-donate:hover {
-        background-color: var(--accent-color);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
-    }
-  }
-  
-  /* Tablet and Mobile */
-  @media (max-width: 992px) {
-    .menu-toggle {
-        display: block;
-    }
-
+    
     .logo-text {
         font-size: 1rem;
-        max-width: 200px; /* Increased for better display on tablet */
+        max-width: 200px;
     }
 
     .logo-img {
         height: 40px;
     }
+}
 
-    .header .nav:not(.active) {
-        display: none;
-    }
-
-    .nav-list {
-        gap: 8px;
-    }
-
-    .nav-list a {
-        white-space: nowrap;
-    }
-  }
-  
-  /* Small Mobile */
-  @media (max-width: 480px) {
+/* Small Mobile styles */
+@media (max-width: 480px) {
     .header {
         padding: 10px 0;
     }
 
     .logo-text {
         font-size: 0.9rem;
-        max-width: 160px; /* Increased for better display on mobile */
+        max-width: 160px;
     }
 
     .logo-img {
         height: 35px;
     }
+}
 
-    .nav {
-        width: 100%;
-    }
-
-    .nav-header-mobile {
-        padding: 16px;
-    }
-
-    .nav-logo-img-mobile {
-        height: 35px;
-    }
-
-    .nav-logo-text-mobile {
-        font-size: 1rem;
-        max-width: 200px; /* Increased for better display in mobile menu */
-    }
-
-    .nav-list {
-        padding: 16px;
-    }
-
-    .nav-list a {
-        padding: 12px 14px;
-        font-size: 1rem;
-    }
-
-    .nav-list .btn-nav-donate {
-        padding: 12px 16px;
-        margin-top: 16px;
-        width: 100%;
-    }
-  }
-  
-  /* Hide logo text only on very small screens */
-  @media (max-width: 320px) {
+/* Very small screens */
+@media (max-width: 320px) {
     .logo-text {
+        /* Keep the logo text visible but make it smaller if needed */
         font-size: 0.8rem;
-        max-width: 160px;
+        max-width: 140px;
     }
-    
-    .logo-link {
-        gap: 0;
-    }
-  }
-  
-  /* Hamburger Menu Styles */
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    z-index: 1003; /* HIGHEST z-index, above the open menu */
-    border: none;
-    background: transparent;
-    padding: 5px;
-    position: relative; /* Ensure z-index works */
-  }
-  
-  .hamburger { /* No changes needed here */
-    width: 28px; height: 22px; position: relative;
-  }
-  .hamburger span {
-    display: block; position: absolute; height: 3px; width: 100%;
-    background: var(--primary-color); border-radius: 3px;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  .hamburger span:nth-child(1) { top: 0; }
-  .hamburger span:nth-child(2) { top: 9px; }
-  .hamburger span:nth-child(3) { top: 18px; }
-  .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
-  .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
-  .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
-  /* Add this to your header.css file */
+}
+/* Add to your header.css file */
 
-/* Specific styles for react-scroll links */
-.nav-link {
-    display: block;
-    padding: 14px 16px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.1rem;
+/* Mobile donate button styling - UPDATED */
+.btn-mobile-donate {
+    background-color: var(--primary-color);
+    color: rgb(162, 125, 47);
+    padding: 5px 10px; /* Much smaller padding */
+    border-radius: var(--border-radius);
     font-weight: 600;
-    border-radius: 8px;
+    font-size: 0.75rem; /* Smaller font */
+    display: none; /* Hidden by default */
+    text-align: center;
     transition: all 0.3s ease;
-    background-color: transparent;
-    cursor: pointer; /* Important for react-scroll links */
+    box-shadow: 0 2px 6px rgba(139, 90, 43, 0.15); /* Lighter shadow */
+    white-space: nowrap; /* Prevent text wrapping */
+    height: 28px; /* Fixed height to match logo better */
+    line-height: 1.2; /* Better vertical alignment */
+    align-self: center; /* Center vertically */
+    line-height: 1px; /* Match this to your button height */
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
-  .nav-link:hover {
-    background-color: rgba(139, 90, 43, 0.08);
-    color: var(--primary-color);
-    transform: translateX(4px);
+  .btn-mobile-donate:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-1px); /* Smaller transform */
+    box-shadow: 0 3px 8px rgba(139, 90, 43, 0.2);
   }
   
-  /* Desktop styles for react-scroll links */
+  /* Media queries - UPDATED */
   @media (min-width: 993px) {
-    .nav-list .nav-link {
-      padding: 10px 4px;
-      font-size: 0.9rem;
-      color: var(--text-color);
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      white-space: nowrap;
-    }
-  
-    .nav-list .nav-link:hover {
-      background-color: transparent;
-      transform: none;
-    }
-  
-    .nav-list .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      left: 5px;
-      width: 0;
-      height: 2px;
-      background-color: var(--secondary-color);
-      transition: width 0.3s ease;
-    }
-  
-    .nav-list .nav-link:hover::after,
-    .nav-list .nav-link.active-link::after {
-      width: calc(100% - 10px);
+    /* Ensure mobile donate button is NEVER shown on desktop */
+    .btn-mobile-donate {
+      display: none !important;
     }
   }
   
-  /* Fix for mobile navigation */
   @media (max-width: 992px) {
-    /* Ensure the nav list items and links are properly sized */
-    .nav-list {
-      width: 100%;
-      padding: 20px;
-      overflow-y: auto;
+    .btn-mobile-donate {
+      display: inline-flex; /* Better for vertical alignment */
+      align-items: center;
+      justify-content: center;
     }
     
-    .nav-list li {
-      width: 100%;
-    }
-    
-    /* Make sure links are properly sized and have enough touch area */
-    .nav-link, .nav-list .btn-nav-donate {
-      width: 100%;
-      display: block;
-      padding: 14px 16px;
-      text-align: left;
-    }
-    
-    /* Ensure the nav is fully visible when active */
-    .nav.active {
-      transform: translateX(0);
-      visibility: visible;
-      z-index: 9999;
+    .nav.desktop-only {
+      display: none;
     }
   }
+  
+  @media (max-width: 480px) {
+    .btn-mobile-donate {
+      padding: 4px 8px; /* Even smaller on very small screens */
+      font-size: 0.7rem;
+      height: 24px; /* Smaller height to match smaller logo */
+    }
+    
+    /* Ensure header has enough space */
+    .header-container {
+      padding: 0 0.5rem;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .btn-mobile-donate {
+      padding: 3px 6px;
+      font-size: 0.65rem;
+      height: 22px;
+    }
+  }
+  
   
