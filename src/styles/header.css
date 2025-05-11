@@ -73,12 +73,11 @@
     flex-direction: column;
     z-index: 1002;
     overflow: hidden;
-    backdrop-filter: none; /* Remove any backdrop filter from menu itself */
-    -webkit-backdrop-filter: none;
   }
   
   .nav.active {
     transform: translateX(0);
+    z-index: 9999 !important; 
   }
   
   .nav-header-mobile {
@@ -89,8 +88,6 @@
     background-color: var(--primary-color);
     color: var(--light-color);
     position: relative;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
   
   .nav-header-content {
@@ -141,8 +138,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
   
   .nav-list li {
@@ -159,8 +154,6 @@
     border-radius: 8px;
     transition: all 0.3s ease;
     background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
   
   .nav-list a:hover {
@@ -194,8 +187,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: none; /* Remove blur from backdrop */
-    -webkit-backdrop-filter: none;
+    backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -205,15 +197,6 @@
   .nav-backdrop.active {
     opacity: 1;
     visibility: visible;
-  }
-  
-  /* Ensure menu content is sharp */
-  .nav-header-mobile,
-  .nav-list,
-  .nav-list a,
-  .nav-list li {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
   }
   
   /* Desktop Nav List */
@@ -418,4 +401,89 @@
   .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
   .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
   .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
+  /* Add this to your header.css file */
+
+/* Specific styles for react-scroll links */
+.nav-link {
+    display: block;
+    padding: 14px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    cursor: pointer; /* Important for react-scroll links */
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(139, 90, 43, 0.08);
+    color: var(--primary-color);
+    transform: translateX(4px);
+  }
+  
+  /* Desktop styles for react-scroll links */
+  @media (min-width: 993px) {
+    .nav-list .nav-link {
+      padding: 10px 4px;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+    }
+  
+    .nav-list .nav-link:hover {
+      background-color: transparent;
+      transform: none;
+    }
+  
+    .nav-list .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+  
+    .nav-list .nav-link:hover::after,
+    .nav-list .nav-link.active-link::after {
+      width: calc(100% - 10px);
+    }
+  }
+  
+  /* Fix for mobile navigation */
+  @media (max-width: 992px) {
+    /* Ensure the nav list items and links are properly sized */
+    .nav-list {
+      width: 100%;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    
+    .nav-list li {
+      width: 100%;
+    }
+    
+    /* Make sure links are properly sized and have enough touch area */
+    .nav-link, .nav-list .btn-nav-donate {
+      width: 100%;
+      display: block;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    
+    /* Ensure the nav is fully visible when active */
+    .nav.active {
+      transform: translateX(0);
+      visibility: visible;
+      z-index: 9999;
+    }
+  }
   

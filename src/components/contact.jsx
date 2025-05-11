@@ -58,14 +58,14 @@ const Contact = () => {
                 <span className="contact-icon">📍</span> {/* Placeholder Icon */}
                 <div>
                   <strong>Address:</strong>
-                  <p>Prafulla Plaza, Makhania Kuan, Patna, [Bihar], [800004], India</p> {/* Replace with actual address from your doc if available */}
+                  <p>Prafulla Plaza, Makhania Kuan, Patna, Bihar, 800004, India</p> {/* Replace with actual address from your doc if available */}
                 </div>
               </li>
               <li>
                 <span className="contact-icon">📧</span> {/* Placeholder Icon */}
                  <div>
                   <strong>Email:</strong>
-                  <p><a href="mailto:info@karwaaneswarojgaar.org">info@karwaaneswarojgaar.org</a></p> {/* Replace with actual email */}
+                  <p><a href="mailto:contact@karwaanes.org">contact@karwaanes.org</a></p> {/* Replace with actual email */}
                 </div>
               </li>
               <li>

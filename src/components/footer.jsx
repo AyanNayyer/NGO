@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="footer-contact">
             <h4>Contact Us</h4>
             <p>📍 Prafulla Plaza, Makhania Kuan, Patna.</p> {/* Short Address */}
-            <p>📧 <a href="mailto:info@karwaaneswarojgaar.org">info@karwaaneswarojgaar.org</a></p>
+            <p>📧 <a href="mailto:contact@karwaanes.org">contact@karwaanes.org</a></p>
             <p>📞 <a href="tel:+910000000000">+91 XXXX XXX XXX</a></p>
           </div>
 

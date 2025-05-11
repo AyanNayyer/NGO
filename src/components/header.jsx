@@ -1,8 +1,8 @@
 // src/components/Header.jsx
 import { useState, useEffect } from 'react';
-import '../styles/header.css'; // Assuming this is how you'd import if using separate files
-                               // For a single App.css, this line is not in the component.
-import logoImage from '../assets/logo.jpeg'; // Your main NGO logo
+import { Link as ScrollLink } from 'react-scroll';
+import '../styles/header.css';
+import logoImage from '../assets/logo.jpeg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,19 +16,20 @@ const Header = () => {
     setIsScrolled(window.scrollY > 50);
   };
 
+  // Function to handle navigation clicks
+  const handleNavClick = () => {
+    // Close menu with a slight delay to ensure the click is processed
+    setTimeout(() => {
+      setIsMenuOpen(false);
+    }, 10);
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    // Add body class when menu is open for potential overflow handling
-    if (isMenuOpen) {
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.classList.remove('menu-open');
-    }
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('menu-open');
     };
-  }, [isMenuOpen]); // Rerun effect when isMenuOpen changes
+  }, []);
 
   return (
     <>
@@ -39,10 +40,18 @@ const Header = () => {
       />
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container header-container">
-          <a href="#home" className="logo-link" onClick={() => setIsMenuOpen(false)}>
+          <ScrollLink 
+            to="home" 
+            spy={true} 
+            smooth={true} 
+            offset={-70} 
+            duration={500} 
+            className="logo-link"
+            onClick={handleNavClick}
+          >
             <img src={logoImage} alt="Karwaan-e-Swarojgaar Logo" className="logo-img" />
             <span className="logo-text">Karwaan-e-Swarojgaar</span>
-          </a>
+          </ScrollLink>
           
           <button 
             className="menu-toggle" 
@@ -76,12 +85,89 @@ const Header = () => {
             </div>
 
             <ul className="nav-list">
-              <li><a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a></li>
-              <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About Us</a></li>
-              <li><a href="#services" onClick={() => setIsMenuOpen(false)}>Our Work</a></li>
-              <li><a href="#impact" onClick={() => setIsMenuOpen(false)}>Impact</a></li>
-              <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
-              <li><a href="#donate" className="btn btn-nav-donate" onClick={() => setIsMenuOpen(false)}>Donate</a></li>
+              <li>
+                <ScrollLink 
+                  to="home" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="nav-link" // Added specific class
+                  activeClass="active-link"
+                  onClick={handleNavClick}
+                >
+                  Home
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="about" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="nav-link" // Added specific class
+                  activeClass="active-link"
+                  onClick={handleNavClick}
+                >
+                  About Us
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="services" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="nav-link" // Added specific class
+                  activeClass="active-link"
+                  onClick={handleNavClick}
+                >
+                  Our Work
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="impact" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="nav-link" // Added specific class
+                  activeClass="active-link"
+                  onClick={handleNavClick}
+                >
+                  Impact
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="contact" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="nav-link" // Added specific class
+                  activeClass="active-link"
+                  onClick={handleNavClick}
+                >
+                  Contact
+                </ScrollLink>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="donate" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-70} 
+                  duration={500}
+                  className="btn btn-nav-donate"
+                  onClick={handleNavClick}
+                >
+                  Donate
+                </ScrollLink>
+              </li>
             </ul>
           </nav>
         </div>

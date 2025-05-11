@@ -6,6 +6,7 @@ import Services from './components/services';
 import Impact from './components/impact';
 import Contact from './components/contact';
 import Footer from './components/footer';
+import { Analytics } from '@vercel/analytics/react'
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
