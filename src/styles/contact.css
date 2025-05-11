@@ -130,4 +130,29 @@
       margin-top: 20px;
     }
   }
+  /* Add to src/styles/contact.css */
+.form-success-message {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .form-success-message h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .form-success-message p {
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+  }
+  
+  .form-error-message {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    text-align: center;
+  }
   
