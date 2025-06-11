@@ -87,7 +87,7 @@ const Header = () => {
                 Our Work
               </ScrollLink>
             </li>
-            <li>
+            {/* <li>
               <ScrollLink 
                 to="impact" 
                 spy={true} 
@@ -99,7 +99,7 @@ const Header = () => {
               >
                 Impact
               </ScrollLink>
-            </li>
+            </li> */}
             <li>
               <ScrollLink 
                 to="contact" 
